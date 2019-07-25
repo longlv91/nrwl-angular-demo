@@ -7,5 +7,15 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "angular8app-e2e": {
+      "tags": []
+    },
+    "angular8app": {
+      "tags": []
+    },
+    "backend": {
+      "tags": []
+    }
+  }
 }
