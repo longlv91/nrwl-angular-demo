@@ -1,5 +1,5 @@
 {
-  "npmScope": "myworkspace",
+  "npmScope": "nrwl-workspace",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -15,6 +15,9 @@
       "tags": []
     },
     "backend": {
+      "tags": []
+    },
+    "entities": {
       "tags": []
     }
   }

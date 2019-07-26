@@ -8,7 +8,7 @@
       "schematics": {},
       "root": "apps/angular8app",
       "sourceRoot": "apps/angular8app/src",
-      "prefix": "myworkspace",
+      "prefix": "nrwl-workspace",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,9 +23,7 @@
               "apps/angular8app/src/favicon.ico",
               "apps/angular8app/src/assets"
             ],
-            "styles": [
-              "apps/angular8app/src/styles.css"
-            ],
+            "styles": ["apps/angular8app/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -80,10 +78,7 @@
               "apps/angular8app/tsconfig.app.json",
               "apps/angular8app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/angular8app/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/angular8app/**"]
           }
         },
         "test": {
@@ -118,10 +113,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/angular8app-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/angular8app-e2e/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/angular8app-e2e/**"]
           }
         }
       }
@@ -139,9 +131,7 @@
             "outputPath": "dist/apps/backend",
             "main": "apps/backend/src/main.ts",
             "tsConfig": "apps/backend/tsconfig.app.json",
-            "assets": [
-              "apps/backend/src/assets"
-            ]
+            "assets": ["apps/backend/src/assets"]
           },
           "configurations": {
             "production": {
@@ -170,10 +160,7 @@
               "apps/backend/tsconfig.app.json",
               "apps/backend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/backend/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/backend/**"]
           }
         },
         "test": {
@@ -181,6 +168,31 @@
           "options": {
             "jestConfig": "apps/backend/jest.config.js",
             "tsConfig": "apps/backend/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "entities": {
+      "root": "libs/entities",
+      "sourceRoot": "libs/entities/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/entities/tsconfig.lib.json",
+              "libs/entities/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/entities/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/entities/jest.config.js",
+            "tsConfig": "libs/entities/tsconfig.spec.json"
           }
         }
       }
