@@ -1,0 +1,15 @@
+::ng-deep .ant-menu-item.collapsed-item .anticon + span,
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-item .anticon + span,
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon + span,
+::ng-deep .ant-menu-submenu.collapsed-item > .ant-menu-submenu-title .anticon + span {
+    display: inline-block;
+    max-width: 0px;
+    opacity: 0;
+}
+
+::ng-deep .ant-menu-item.collapsed-item .ant-menu-submenu-arrow, 
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-item .ant-menu-submenu-arrow, 
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-submenu-arrow, 
+::ng-deep .ant-menu-submenu.collapsed-item > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+    display: none;
+}

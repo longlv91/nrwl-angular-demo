@@ -9,6 +9,7 @@ import { Menu } from '@nrwl-workspace/entities';
 export class RecursiveMenuComponent implements OnInit {
 
   @Input() menus: Menu[];
+  @Input() isCollapsed: boolean;
   constructor() { }
 
   ngOnInit() {

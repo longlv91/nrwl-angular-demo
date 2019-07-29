@@ -15,6 +15,12 @@ const routes: Routes = [
   {
     path: 'user-interface', loadChildren: () => import('./modules/user-interface/user-interface.module').then(mod => mod.UserInterfaceModule)
   },
+  {
+    path: 'ant-elements', loadChildren: () => import('./modules/ant-elements/ant-elements.module').then(mod => mod.AntElementsModule)
+  },
+  {
+    path: 'docs', loadChildren: () => import('./modules/documentation/documentation.module').then(mod => mod.DocumentationModule)
+  },
   { path: '**', redirectTo: '/pages/error/not-found' }
 ];
 
