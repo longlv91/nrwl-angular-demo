@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
-import { QuestionService } from './services/question.service';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'nrwl-workspace-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [QuestionService]
+  providers: []
 })
 export class AppComponent {
   title = 'angular8app';
+  isCollapsed = false;
   questions: any[];
 
-  constructor(service: QuestionService) {
-    this.questions = service.getQuestions();
+  public config: PerfectScrollbarConfigInterface = {};
+
+  constructor() {
+    
   }
 }

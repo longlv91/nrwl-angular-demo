@@ -1,12 +1,24 @@
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-
-<div>
-  <h2>Job Application for Heroes</h2>
-  <nrwl-workspace-dynamic-form [questions]="questions"></nrwl-workspace-dynamic-form>
-</div>
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="300px">
+    <div class="logo"></div>
+    <perfect-scrollbar [config]="config">
+        <nrwl-workspace-navigation [isCollapsed]="isCollapsed"></nrwl-workspace-navigation>
+    </perfect-scrollbar>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"></i>
+    </nz-header>
+    <nz-content>
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>VBL ©2019 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>

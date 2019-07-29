@@ -1,44 +1,33 @@
-export class QuestionBase<T> {
-    value: T;
-    key: string;
+export class Menu {
     label: string;
-    required: boolean;
-    controlType: string;
+    icon: string;
+    routerLink: string;
+    hasChild: boolean;
     order: number;
+    children: Menu[];
 
     constructor(options: {
-        value?: T,
-        key?: string,
         label?: string,
-        required?: boolean,
+        icon?: string,
+        routerLink?: string,
+        hasChild?: boolean,
         order?: number,
-        controlType?: string
+        children?: Menu[]
     } = {}) {
-        this.value = options.value;
-        this.key = options.key || '';
-        this.label = options.label || '';
-        this.required = !!options.required;
+        this.label = options.label;
+        this.icon = options.icon || '';
+        this.routerLink = options.routerLink || '';
+        this.hasChild = !!options.hasChild;
         this.order = options.order === undefined ? 1 : options.order;
-        this.controlType = options.controlType || '';
+        this.children = options.children || [];
     }
 }
 
-export class TextboxQuestion extends QuestionBase<string> {
-    controlType = 'textbox';
-    type: string;
-
-    constructor(options: {} = {}) {
-        super(options);
-        this.type = options['type'] || '';
-    }
-}
-
-export class DropdownQuestion extends QuestionBase<string> {
-    controlType = 'dropdown';
-    options: { key: string, value: string }[] = [];
-
-    constructor(options: {} = {}) {
-        super(options);
-        this.options = options['options'] || [];
+export class Menus {
+    title: string;
+    menu: Menu[];
+    constructor(options: {title?: string, menu?: Menu[]}) {
+        this.title = options.title;
+        this.menu = options.menu;
     }
 }

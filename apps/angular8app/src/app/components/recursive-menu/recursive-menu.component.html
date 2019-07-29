@@ -1,0 +1,11 @@
+<ng-container *ngFor="let menuItem of menus">
+    <li *ngIf="menuItem.hasChild" nz-submenu [nzTitle]="menuItem.label" [nzIcon]="menuItem.icon">
+        <ul>
+            <nrwl-workspace-recursive-menu [menus]="menuItem.children"></nrwl-workspace-recursive-menu>
+        </ul>
+    </li>
+    <li *ngIf="!menuItem.hasChild" nz-menu-item>
+        <a routerLink="{{menuItem.routerLink}}"><i nz-icon [nzType]="menuItem.icon" nzTheme="outline"></i>
+            {{menuItem.label}}</a>
+    </li>
+</ng-container>

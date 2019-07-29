@@ -21,9 +21,15 @@
             "aot": false,
             "assets": [
               "apps/angular8app/src/favicon.ico",
-              "apps/angular8app/src/assets"
+              "apps/angular8app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
-            "styles": ["apps/angular8app/src/styles.css"],
+            "styles": ["apps/angular8app/src/styles.css",
+            "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css"],
             "scripts": []
           },
           "configurations": {

@@ -1,0 +1,11 @@
+<div class="group-menu" *ngFor="let menu of menus">
+    <div class="group-title">
+        <span *ngIf="!isCollapsed">{{menu?.title}}</span>
+        <i *ngIf="isCollapsed" nz-icon nzType="line" nzTheme="outline"></i>
+    </div>
+    <div class="group-items">
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <nrwl-workspace-recursive-menu [menus]="menu.menu"></nrwl-workspace-recursive-menu>
+        </ul>
+    </div>
+</div>
