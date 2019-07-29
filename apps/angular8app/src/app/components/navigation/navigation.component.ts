@@ -144,8 +144,49 @@ export class NavigationComponent implements OnInit {
             icon: 'lock',
             routerLink: 'pages/authentication',
             order: 0,
-            hasChild: false,
-            children: []
+            hasChild: true,
+            children: [
+              {
+                label: 'Login',
+                icon: '',
+                routerLink: 'pages/authentication/login',
+                order: 0,
+                hasChild: false,
+                children: []
+              },
+              {
+                label: 'Register',
+                icon: '',
+                routerLink: 'pages/authentication/register',
+                order: 1,
+                hasChild: false,
+                children: []
+              },
+              {
+                label: 'Forgot Password',
+                icon: '',
+                routerLink: 'pages/authentication/forgot-password',
+                order: 2,
+                hasChild: false,
+                children: []
+              },
+              {
+                label: 'Reset Password',
+                icon: '',
+                routerLink: 'pages/authentication/reset-password',
+                order: 3,
+                hasChild: false,
+                children: []
+              },
+              {
+                label: 'Lock Screen',
+                icon: '',
+                routerLink: 'pages/authentication/lock-screen',
+                order: 4,
+                hasChild: false,
+                children: []
+              },
+            ]
           },
           {
             label: 'Coming Soon',
@@ -269,6 +310,19 @@ export class NavigationComponent implements OnInit {
             label: 'Helper Classes',
             icon: 'issues-close',
             routerLink: 'user-interface/helper-classes',
+            order: 0,
+            hasChild: false,
+            children: []
+          }
+        ]
+      },
+      {
+        title: 'Documentation',
+        menu: [
+          {
+            label: 'Changelog',
+            icon: 'history',
+            routerLink: 'docs/changelog',
             order: 0,
             hasChild: false,
             children: []

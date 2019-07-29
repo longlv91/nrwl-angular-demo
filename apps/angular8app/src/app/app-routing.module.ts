@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'apps', pathMatch: 'full'
+    path: '', redirectTo: '/apps/dashboards/analytics', pathMatch: 'full'
   },
   {
     path: 'apps', loadChildren: () => import('./modules/application/application.module').then(mod => mod.ApplicationModule)
@@ -13,9 +13,9 @@ const routes: Routes = [
     path: 'pages', loadChildren: () => import('./modules/page/page.module').then(mod => mod.PageModule)
   },
   {
-    path: 'user-interface', loadChildren: () => import('./modules/ant-elements/ant-elements.module').then(mod => mod.AntElementsModule)
+    path: 'user-interface', loadChildren: () => import('./modules/user-interface/user-interface.module').then(mod => mod.UserInterfaceModule)
   },
-  { path: '**', redirectTo: 'apps' }
+  { path: '**', redirectTo: '/pages/error/not-found' }
 ];
 
 @NgModule({

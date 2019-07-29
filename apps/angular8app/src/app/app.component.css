@@ -20,7 +20,7 @@ nz-breadcrumb {
 .inner-content {
   padding: 24px;
   background: #fff;
-  min-height: 360px;
+  min-height: 750px;
 }
 
 nz-footer {
@@ -30,5 +30,9 @@ nz-footer {
 nrwl-workspace-navigation {
     position: relative;
     display: block;
-    height: calc(100vh - 128px);
+    height: calc(100vh - 64px);
+}
+
+perfect-scrollbar {
+  height: calc(100vh - 64px);
 }
