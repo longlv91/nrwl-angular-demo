@@ -13,3 +13,10 @@
 ::ng-deep .ant-menu-submenu.collapsed-item > .ant-menu-submenu-title .ant-menu-submenu-arrow {
     display: none;
 }
+
+::ng-deep .ant-menu-item.collapsed-item,
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-item ,
+::ng-deep .ant-menu-item-group.collapsed-item > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title ,
+::ng-deep .ant-menu-submenu.collapsed-item > .ant-menu-submenu-title {
+    text-align: center
+}
