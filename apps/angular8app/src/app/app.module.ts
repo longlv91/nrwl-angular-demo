@@ -16,6 +16,8 @@ import { RecursiveMenuComponent } from './components/recursive-menu/recursive-me
 import { TitleService } from './services/title.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DataService } from './services/data.service';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { AuthService } from './services/auth.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -37,6 +39,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     TitleService,
+    AuthService,
+    AuthGuardGuard,
     DataService
   ],
   bootstrap: [AppComponent]

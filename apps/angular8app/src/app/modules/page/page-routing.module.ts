@@ -13,6 +13,7 @@ import { PricingComponent } from './components/pricing/pricing.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchComponent } from './components/search/search.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { AuthGuardGuard } from '../../guards/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
       { path: 'lock-screen', component: LockScreenComponent, data: { title: "Lock Screen"} }
     ]
   },
-  { path: 'coming-soon', component: ComingSoonComponent, data: { title: "Coming Soon"} },
+  { path: 'coming-soon', component: ComingSoonComponent, data: { title: "Coming Soon"}, canActivate: [AuthGuardGuard] },
   {
     path: 'error',
     children: [
@@ -37,10 +38,10 @@ const routes: Routes = [
       { path: 'server-error', component: ServerErrorComponent, data: { title: "500 - Server Error"} }
     ]
   },
-  { path: 'invoice', component: InvoiceComponent, data: { title: "Invoice"} },
-  { path: 'pricing', component: PricingComponent, data: { title: "Pricing"} },
-  { path: 'profile', component: ProfileComponent, data: { title: "Profile"} },
-  { path: 'search', component: SearchComponent, data: { title: "Search"} },
+  { path: 'invoice', component: InvoiceComponent, data: { title: "Invoice"}, canActivate: [AuthGuardGuard] },
+  { path: 'pricing', component: PricingComponent, data: { title: "Pricing"}, canActivate: [AuthGuardGuard] },
+  { path: 'profile', component: ProfileComponent, data: { title: "Profile"}, canActivate: [AuthGuardGuard] },
+  { path: 'search', component: SearchComponent, data: { title: "Search"}, canActivate: [AuthGuardGuard] },
   { path: 'faq', component: FaqComponent, data: { title: "FAQ"} }
 ];
 

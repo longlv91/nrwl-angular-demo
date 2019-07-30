@@ -36,3 +36,7 @@ nrwl-workspace-navigation {
 perfect-scrollbar {
   height: calc(100vh - 64px);
 }
+
+::ng-deep perfect-scrollbar > .ps.ps--active-y > .ps__rail-y {
+  width: 0px !important;
+}

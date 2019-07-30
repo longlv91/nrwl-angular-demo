@@ -19,6 +19,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .setBasePath('api')
     .addTag('angular8')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
