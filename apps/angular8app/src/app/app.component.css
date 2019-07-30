@@ -28,9 +28,9 @@ nz-footer {
 }
 
 nrwl-workspace-navigation {
-    position: relative;
-    display: block;
-    height: calc(100vh - 64px);
+  position: relative;
+  display: block;
+  height: calc(100vh - 64px);
 }
 
 perfect-scrollbar {
@@ -39,4 +39,34 @@ perfect-scrollbar {
 
 ::ng-deep perfect-scrollbar > .ps.ps--active-y > .ps__rail-y {
   width: 0px !important;
+}
+
+.trigger {
+  position: absolute;
+  top: 0;
+  color: #fff;
+  font-size: 20px;
+  z-index: 2;
+  transition: left 0.35s;
+}
+
+::ng-deep .trigger.anticon-menu-fold {
+  left: 300px;
+}
+
+::ng-deep .trigger.anticon-menu-unfold {
+  left: 80px;
+}
+
+.header-menu {
+  height: 64px;
+}
+
+.header-menu > li {
+  height: 64px;
+  float: right;
+}
+
+.user-action-menu {
+  border: none;
 }

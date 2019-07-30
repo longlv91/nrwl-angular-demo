@@ -1,10 +1,19 @@
 <ng-container *ngFor="let menuItem of menus">
-    <li *ngIf="menuItem.hasChild" nz-submenu [nzTitle]="menuItem.label" [nzIcon]="menuItem.icon" [ngClass]="{'collapsed-item': isCollapsed}">
+    <li *ngIf="menuItem.hasChild && hasSelectedChild(menuItem.children)" nz-submenu nzOpen [nzTitle]="menuItem.label" [nzIcon]="menuItem.icon" [ngClass]="{'collapsed-item': isCollapsed}">
         <ul>
             <nrwl-workspace-recursive-menu [menus]="menuItem.children"></nrwl-workspace-recursive-menu>
         </ul>
     </li>
-    <li *ngIf="!menuItem.hasChild" nz-menu-item [ngClass]="{'collapsed-item': isCollapsed}">
+    <li *ngIf="menuItem.hasChild && !hasSelectedChild(menuItem.children)" nz-submenu [nzTitle]="menuItem.label" [nzIcon]="menuItem.icon" [ngClass]="{'collapsed-item': isCollapsed}">
+        <ul>
+            <nrwl-workspace-recursive-menu [menus]="menuItem.children"></nrwl-workspace-recursive-menu>
+        </ul>
+    </li>
+    <li *ngIf="!menuItem.hasChild && !isSelectedItem(menuItem.routerLink)" nz-menu-item [ngClass]="{'collapsed-item': isCollapsed}">
+        <a routerLink="{{menuItem.routerLink}}"><i nz-icon [nzType]="menuItem.icon" nzTheme="outline"></i>
+            <span>{{menuItem.label}}</span></a>
+    </li>
+    <li *ngIf="!menuItem.hasChild && isSelectedItem(menuItem.routerLink)" nz-menu-item nzSelected [ngClass]="{'collapsed-item': isCollapsed}">
         <a routerLink="{{menuItem.routerLink}}"><i nz-icon [nzType]="menuItem.icon" nzTheme="outline"></i>
             <span>{{menuItem.label}}</span></a>
     </li>

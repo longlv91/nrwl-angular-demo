@@ -32,5 +32,6 @@ export class AuthService {
     this.accessToken = "";
     this.isLoggedIn = false;
     this.user = null;
+    this.router.navigate(["/pages/authentication/login"]);
   }
 }

@@ -12,6 +12,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   isCollapsed = false;
   questions: any[];
+  breadcrumbs: string[];
 
   public config: PerfectScrollbarConfigInterface = {};
 
@@ -20,9 +21,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.init();
+    this.titleService.breadcrumbEvent.subscribe(event => {
+      this.breadcrumbs = event;
+    });
   }
 
   isAuthorized() {
     return this.authService.isLoggedIn;
+  }
+
+  logout() {
+    this.authService.clearSession();
   }
 }

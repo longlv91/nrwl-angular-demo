@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -11,6 +11,8 @@ const SEPARATOR = ' > ';
   providedIn: 'root'
 })
 export class TitleService {
+
+  breadcrumbEvent: EventEmitter<any> = new EventEmitter<any>();
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -28,6 +30,7 @@ export class TitleService {
       filter((route) => route.outlet === 'primary'),
       mergeMap((route) => route.data),
       map((data) => {
+        this.breadcrumbEvent.emit(this.loadBreadcrumb(this.router.url));
         if (data.title) {
           // If a route has a title set (e.g. data: {title: "Foo"}) then we use it
           return data.title;
@@ -35,14 +38,18 @@ export class TitleService {
           // If not, we do a little magic on the url to create an approximation
           return this.router.url.split('/').reduce((acc, frag) => {
             if (acc && frag) { acc += SEPARATOR; }
-            return acc + TitleService.ucFirst(frag);
+            return acc + this.ucFirst(frag);
           });
         }
       })
     ).subscribe((pathString) => this.titleService.setTitle(`${APP_TITLE} ${pathString}`));
   }
 
-  static ucFirst(string) {
+  loadBreadcrumb(url: string) {
+    return url.split('/').filter(item => item !== "").map(str => this.ucFirst(str.replace("-"," ")));
+  }
+
+  ucFirst(string) {
     if (!string) { return string; }
     return string.charAt(0).toUpperCase() + string.slice(1);
   }

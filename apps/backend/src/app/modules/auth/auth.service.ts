@@ -31,10 +31,10 @@ export class AuthService {
   async login(user: any) {
     user = await this.usersService.findOne(user.username);
     const payload = { username: user.username, sub: user.id };
-    const password = user.password;
-    user.password = AES.encrypt(password, environment.secret_key).toString();
+    const clonedUser = Object.assign({}, user);
+    clonedUser.password = AES.encrypt(clonedUser.password, environment.secret_key).toString();
     return {
-      userInfo: user,
+      userInfo: clonedUser,
       access_token: this.jwtService.sign(payload),
     };
   }
