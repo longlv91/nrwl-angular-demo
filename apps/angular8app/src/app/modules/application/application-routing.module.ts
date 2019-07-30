@@ -20,26 +20,26 @@ const routes: Routes = [
     path: 'dashboards',
     children: [
       { path: '', redirectTo: 'analytics', pathMatch: 'full' },
-      { path: 'analytics', component: AnalyticsComponent },
-      { path: 'project', component: ProjectComponent }
+      { path: 'analytics', component: AnalyticsComponent, data: { title: "Analytics Dashboard"} },
+      { path: 'project', component: ProjectComponent, data: { title: "Project Dashboard"} }
     ]
   },
-  { path: 'calendar', component: CalendarComponent },
+  { path: 'calendar', component: CalendarComponent, data: { title: "Calendar"} },
   {
     path: 'ecommerce',
     children: [
       { path: '', redirectTo: 'products', pathMatch: 'full' },
-      { path: 'products', component: ProductsComponent },
-      { path: 'product-detail', component: ProductDetailComponent },
-      { path: 'orders', component: OrdersComponent },
-      { path: 'order-detail', component: OrderDetailComponent }
+      { path: 'products', component: ProductsComponent, data: { title: "Products"} },
+      { path: 'product-detail', component: ProductDetailComponent, data: { title: "Product Detail"} },
+      { path: 'orders', component: OrdersComponent, data: { title: "Orders"} },
+      { path: 'order-detail', component: OrderDetailComponent, data: { title: "Order Detail"} }
     ]
   },
-  { path: 'academy', component: AcademyComponent },
-  { path: 'mail', component: MailComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: 'file-manager', component: FileManagerComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'academy', component: AcademyComponent, data: { title: "Academy"} },
+  { path: 'mail', component: MailComponent, data: { title: "Mail"} },
+  { path: 'chat', component: ChatComponent, data: { title: "Chat"} },
+  { path: 'file-manager', component: FileManagerComponent, data: { title: "File Manager"} },
+  { path: 'contact', component: ContactComponent, data: { title: "Contact"} }
 ];
 
 @NgModule({

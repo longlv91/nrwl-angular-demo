@@ -10,9 +10,12 @@ import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RecursiveMenuComponent } from './components/recursive-menu/recursive-menu.component';
+import { TitleService } from './services/title.service';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { DataService } from './services/data.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -25,9 +28,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    TitleService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

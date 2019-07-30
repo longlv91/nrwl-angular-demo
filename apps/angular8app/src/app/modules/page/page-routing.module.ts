@@ -21,27 +21,27 @@ const routes: Routes = [
     path: 'authentication',
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'forgot-password', component: ForgotPasswordComponent },
-      { path: 'reset-password', component: ResetPasswordComponent },
-      { path: 'lock-screen', component: LockScreenComponent }
+      { path: 'login', component: LoginComponent, data: { title: "Login"} },
+      { path: 'register', component: RegisterComponent, data: { title: "Register"} },
+      { path: 'forgot-password', component: ForgotPasswordComponent, data: { title: "Forgot Password"} },
+      { path: 'reset-password', component: ResetPasswordComponent, data: { title: "Reset Password"} },
+      { path: 'lock-screen', component: LockScreenComponent, data: { title: "Lock Screen"} }
     ]
   },
-  { path: 'coming-soon', component: ComingSoonComponent },
+  { path: 'coming-soon', component: ComingSoonComponent, data: { title: "Coming Soon"} },
   {
     path: 'error',
     children: [
       { path: '', redirectTo: 'not-found', pathMatch: 'full' },
-      { path: 'not-found', component: NotFoundComponent },
-      { path: 'server-error', component: ServerErrorComponent }
+      { path: 'not-found', component: NotFoundComponent, data: { title: "404 - Page Not Found"} },
+      { path: 'server-error', component: ServerErrorComponent, data: { title: "500 - Server Error"} }
     ]
   },
-  { path: 'invoice', component: InvoiceComponent },
-  { path: 'pricing', component: PricingComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'faq', component: FaqComponent }
+  { path: 'invoice', component: InvoiceComponent, data: { title: "Invoice"} },
+  { path: 'pricing', component: PricingComponent, data: { title: "Pricing"} },
+  { path: 'profile', component: ProfileComponent, data: { title: "Profile"} },
+  { path: 'search', component: SearchComponent, data: { title: "Search"} },
+  { path: 'faq', component: FaqComponent, data: { title: "FAQ"} }
 ];
 
 @NgModule({

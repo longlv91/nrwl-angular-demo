@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { TitleService } from './services/title.service';
 
 @Component({
   selector: 'nrwl-workspace-root',
@@ -7,14 +8,16 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
   styleUrls: ['./app.component.css'],
   providers: []
 })
-export class AppComponent {
-  title = 'angular8app';
+export class AppComponent implements OnInit {
   isCollapsed = false;
   questions: any[];
 
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor() {
-    
+  constructor(private titleService: TitleService) {
+  }
+
+  ngOnInit() {
+    this.titleService.init();
   }
 }

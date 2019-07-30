@@ -10,12 +10,12 @@ import { HelperClassesComponent } from './components/helper-classes/helper-class
 
 const routes: Routes = [
   { path: '', redirectTo: '/cards', pathMatch: 'full' },
-  { path: 'cards', component: CardsComponent },
-  { path: 'forms', component: FormsComponent },
-  { path: 'colors', component: ColorsComponent },
-  { path: 'icons', component: IconsComponent },
-  { path: 'page-layouts', component: PageLayoutsComponent },
-  { path: 'helper-classes', component: HelperClassesComponent }
+  { path: 'cards', component: CardsComponent, data: { title: "Cards"} },
+  { path: 'forms', component: FormsComponent, data: { title: "Forms"} },
+  { path: 'colors', component: ColorsComponent, data: { title: "Colors"} },
+  { path: 'icons', component: IconsComponent, data: { title: "Icons"} },
+  { path: 'page-layouts', component: PageLayoutsComponent, data: { title: "Page Layouts"} },
+  { path: 'helper-classes', component: HelperClassesComponent, data: { title: "Helper Classes"} }
 ];
 
 @NgModule({

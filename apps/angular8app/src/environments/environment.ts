@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backend_api: {
+    uri: "http://localhost:3333/api",
+    menu_context: "/menus"
+  }
 };
 
 /*
