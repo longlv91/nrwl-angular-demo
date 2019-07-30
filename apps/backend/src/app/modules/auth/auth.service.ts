@@ -25,7 +25,9 @@ export class AuthService {
 
   async getUser(username: string): Promise<any> {
     const user = await this.usersService.findOne(username);
-    return user;
+    const clonedUser = Object.assign({}, user);
+    clonedUser.password = AES.encrypt(clonedUser.password, environment.secret_key).toString();
+    return clonedUser;
   }
 
   async login(user: any) {
