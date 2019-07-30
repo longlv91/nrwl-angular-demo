@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { TitleService } from './services/title.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'nrwl-workspace-root',
@@ -14,10 +15,14 @@ export class AppComponent implements OnInit {
 
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor(private titleService: TitleService) {
+  constructor(private titleService: TitleService, private authService: AuthService) {
   }
 
   ngOnInit() {
     this.titleService.init();
+  }
+
+  isAuthorized() {
+    return this.authService.isLoggedIn;
   }
 }

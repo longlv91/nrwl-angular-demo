@@ -5,7 +5,7 @@ import { Menus } from '@nrwl-workspace/entities';
 @Injectable()
 export class AppService {
   
-  getNavData(): Menus[] {
+  getNavData(userId: string): Menus[] {
     return navData;
   }
 

@@ -1,17 +1,17 @@
 <nz-layout>
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="300px">
+  <nz-sider *ngIf="isAuthorized()" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="300px">
     <div class="logo"></div>
     <perfect-scrollbar [config]="config">
         <nrwl-workspace-navigation [isCollapsed]="isCollapsed"></nrwl-workspace-navigation>
     </perfect-scrollbar>
   </nz-sider>
   <nz-layout>
-    <nz-header>
+    <nz-header *ngIf="isAuthorized()">
       <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
         (click)="isCollapsed = !isCollapsed"></i>
     </nz-header>
     <nz-content>
-      <nz-breadcrumb>
+      <nz-breadcrumb *ngIf="isAuthorized()">
         <nz-breadcrumb-item>User</nz-breadcrumb-item>
         <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
       </nz-breadcrumb>
@@ -19,6 +19,6 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>VBL ©2019 Implement By Angular</nz-footer>
+    <nz-footer *ngIf="isAuthorized()">VBL ©2019 Implement By Angular</nz-footer>
   </nz-layout>
 </nz-layout>

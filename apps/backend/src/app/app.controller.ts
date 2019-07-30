@@ -13,7 +13,7 @@ export class AppController {
   @ApiBearerAuth()
   @Get('menus')
   getNavData(@Query('userId') userId: string, @Res() res): any {
-    res.status(HttpStatus.OK).json(this.appService.getNavData());
+    res.status(HttpStatus.OK).json(this.appService.getNavData(userId));
   }
 
   @UseGuards(AuthGuard('local'))

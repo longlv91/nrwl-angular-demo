@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
@@ -25,7 +25,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, RecursiveMenuComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule, NgZorroAntdModule, NzDividerModule,
+  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule, NgZorroAntdModule, NzDividerModule,
     PerfectScrollbarModule],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

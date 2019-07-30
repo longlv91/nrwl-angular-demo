@@ -15,12 +15,15 @@ import { ResetPasswordComponent } from './components/authentication/reset-passwo
 import { LockScreenComponent } from './components/authentication/lock-screen/lock-screen.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { ServerErrorComponent } from './components/error/server-error/server-error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 
 @NgModule({
   declarations: [ComingSoonComponent, ProfileComponent, PricingComponent, SearchComponent, FaqComponent, InvoiceComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, ResetPasswordComponent, LockScreenComponent, NotFoundComponent, ServerErrorComponent],
   imports: [
     CommonModule,
+    FormsModule, ReactiveFormsModule, NgZorroAntdModule,
     PageRoutingModule
   ]
 })
