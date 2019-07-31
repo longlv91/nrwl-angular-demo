@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isCollapsed = false;
   questions: any[];
   breadcrumbs: string[];
+  visible: boolean;
 
   public config: PerfectScrollbarConfigInterface = {};
 
@@ -56,6 +57,14 @@ export class AppComponent implements OnInit {
       return this.authService.user.avatar;
     }
     return "";
+  }
+
+  open(): void {
+    this.visible = !this.visible;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 
   logout() {

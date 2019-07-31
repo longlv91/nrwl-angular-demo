@@ -29,6 +29,14 @@ nz-breadcrumb {
 
 nz-footer {
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 300px);
+  padding: 20px 50px;
+}
+
+nz-footer.collapsed {
+  width: calc(100% - 80px);
 }
 
 nrwl-workspace-navigation {
@@ -54,16 +62,18 @@ perfect-scrollbar {
   transition: left 0.35s;
 }
 
-::ng-deep .trigger.anticon-menu-fold {
+/* ::ng-deep .trigger.anticon-menu-fold {
   left: 300px;
 }
 
 ::ng-deep .trigger.anticon-menu-unfold {
   left: 80px;
-}
+} */
 
 .header-menu {
   height: 64px;
+  position: absolute;
+  width: 100%;
 }
 
 .header-menu > li {
@@ -106,3 +116,24 @@ perfect-scrollbar {
   color: #fff;
 }
 
+.settings {
+  position: fixed;
+  top: 300px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 35px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 9999;
+  color: #6a6a6a;
+  background-color: #fff;
+  border: 1px solid #9f9f9f;
+  transition: right 0.35s ease-in-out;
+}
+
+.settings.show-drawer {
+  right: 256px;
+}
