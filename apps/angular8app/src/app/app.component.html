@@ -1,61 +1,39 @@
 <nz-layout>
-  <nz-sider
-    *ngIf="isAuthorized()"
-    nzCollapsible
-    [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null"
-    nzWidth="300px"
-  >
+  <nz-sider *ngIf="isAuthorized()" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="300px">
     <div class="logo"></div>
     <perfect-scrollbar [config]="config">
-      <nrwl-workspace-navigation
-        [isCollapsed]="isCollapsed"
-      ></nrwl-workspace-navigation>
+      <nrwl-workspace-navigation [isCollapsed]="isCollapsed"></nrwl-workspace-navigation>
     </perfect-scrollbar>
   </nz-sider>
   <nz-layout>
     <nz-header *ngIf="isAuthorized()">
-      <i
-        class="trigger"
-        nz-icon
-        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-        (click)="isCollapsed = !isCollapsed"
-      ></i>
-      <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-        <li
-          nz-menu-item
-          nz-popover
-          nzTrigger="click"
-          [nzContent]="contentTemplate"
-          nzPlacement="bottomRight"
-        >
-          <nz-avatar nzIcon="user"></nz-avatar>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"></i>
+      <ul nz-menu nzTheme="dark" nzSelectable="false" nzMode="horizontal" class="header-menu">
+        <li nz-menu-item nz-popover nzTrigger="click" [nzContent]="contentTemplate" nzPlacement="bottomRight">
+          <nz-avatar [nzText]="showUserText(false)" [nzSrc]="showUserAvatar()" class="avatar"></nz-avatar>
         </li>
       </ul>
       <ng-template #contentTemplate>
+        <div class="text-center">Signed in as <strong>{{showUserText(true)}}</strong></div>
+        <nz-divider class="divider-menu"></nz-divider>
         <ul nz-menu nzMode="inline" class="user-action-menu">
           <li nz-menu-item>
-            <a routerLink="pages/authentication/profile"
-              ><i nz-icon nzType="user" nzTheme="outline"></i>
-              <span> Profile</span></a
-            >
+            <a routerLink="pages/authentication/profile"><i nz-icon nzType="user" nzTheme="outline"></i>
+              <span> Profile</span></a>
           </li>
           <li nz-menu-item>
-            <a routerLink="pages/authentication/reset-password"
-              ><i nz-icon nzType="tool" nzTheme="outline"></i>
-              <span> Reset Password</span></a
-            >
+            <a routerLink="pages/authentication/reset-password"><i nz-icon nzType="tool" nzTheme="outline"></i>
+              <span> Reset Password</span></a>
           </li>
           <li nz-menu-item>
-            <a (click)="logout()"
-              ><i nz-icon nzType="poweroff" nzTheme="outline"></i>
-              <span> Logout</span></a
-            >
+            <a (click)="logout()"><i nz-icon nzType="poweroff" nzTheme="outline"></i>
+              <span> Logout</span></a>
           </li>
         </ul>
       </ng-template>
     </nz-header>
-    <nz-content>
+    <nz-content [ngClass]="{'unauthorized-status': !isAuthorized()}">
       <nz-breadcrumb *ngIf="isAuthorized()">
         <nz-breadcrumb-item *ngFor="let item of breadcrumbs">{{
           item

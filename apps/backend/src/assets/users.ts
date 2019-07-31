@@ -5,7 +5,7 @@ export const users = [
         id: "1",
         username: "admin",
         password: "admin",
-        avatar: "/assets/images/admin.png",
+        avatar: "/assets/images/avatar.png",
         role: Role.ADMIN,
         isActivated: true
     },

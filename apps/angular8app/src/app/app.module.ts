@@ -18,6 +18,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DataService } from './services/data.service';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { AuthService } from './services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -39,6 +40,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     TitleService,
+    CookieService,
     AuthService,
     AuthGuardGuard,
     DataService
