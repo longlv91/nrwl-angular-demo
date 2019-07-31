@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
 
     if (this.cookieService.check('token')) {
       this.authService.accessToken = this.cookieService.get('token');
+      this.authService.checkToken();
     }
   }
 

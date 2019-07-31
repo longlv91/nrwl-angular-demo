@@ -44,6 +44,7 @@
     "@nestjs/platform-express": "^6.2.4",
     "@nestjs/swagger": "^3.1.0",
     "chart.js": "^2.8.0",
+    "chartjs-plugin-annotation": "^0.5.7",
     "core-js": "^2.5.4",
     "crypto-js": "^3.1.9-1",
     "echarts": "^4.2.1",

@@ -29,4 +29,11 @@ export class AppController {
     console.log(username);
     return this.authService.getUser(username);
   }
+
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @Get('check-token')
+  checkToken(@Res() res): any {
+    res.status(HttpStatus.OK).json({message: "Valid token"});
+  }
 }

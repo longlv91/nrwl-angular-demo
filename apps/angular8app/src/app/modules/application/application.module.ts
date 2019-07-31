@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChartsModule } from 'ng2-charts';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { ApplicationRoutingModule } from './application-routing.module';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -19,6 +21,8 @@ import { ContactComponent } from './components/contact/contact.component';
   declarations: [CalendarComponent, ProductsComponent, ProductDetailComponent, OrdersComponent, OrderDetailComponent, AnalyticsComponent, ProjectComponent, AcademyComponent, MailComponent, ChatComponent, FileManagerComponent, ContactComponent],
   imports: [
     CommonModule,
+    ChartsModule,
+    NgxEchartsModule,
     ApplicationRoutingModule
   ]
 })
