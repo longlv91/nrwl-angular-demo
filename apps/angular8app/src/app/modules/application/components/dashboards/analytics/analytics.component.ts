@@ -2,6 +2,16 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { getInstanceByDom, connect } from 'echarts';
 
 const CHART_OPTIONS = {
+  title: {
+    text: 'Nightingale\'s Rose Diagram',
+    subtext: 'Mocking Data',
+    textStyle: {
+      "fontSize": 14,
+      "fontWeight": "normal",
+      "color": "#333"
+    },
+    x: 'left'
+  },
   color: ['#3398DB'],
   tooltip: {
     trigger: 'axis',
@@ -45,6 +55,11 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   echartsInstance: any;
   pieOptions = {
+    title: {
+      text: 'Nightingale\'s Rose Diagram',
+      subtext: 'Mocking Data',
+      x: 'center'
+    },
     tooltip: {
       trigger: 'item',
       formatter: '{a} <br/>{b} : {c} ({d}%)'
