@@ -1,12 +1,33 @@
-<div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
-  <div nz-col nzSpan="8">
-    <div id="chart1" echarts [options]="options" theme="macarons" class="demo-chart"></div>
+<div nz-row>
+  <div nz-col nzSpan="16">
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <div nz-col nzSpan="8">
+        <div
+          id="chart1"
+          echarts
+          [options]="options"
+          theme="macarons"
+          class="demo-chart"
+        ></div>
+      </div>
+      <div nz-col nzSpan="8">
+        <div
+          id="chart2"
+          echarts
+          [options]="options"
+          theme="macarons"
+          class="demo-chart"
+        ></div>
+      </div>
+      <div nz-col nzSpan="8">
+        <div
+          echarts
+          [options]="pieOptions"
+          (chartInit)="onChartInit($event)"
+          class="demo-chart"
+        ></div>
+      </div>
+    </div>
   </div>
-  <div nz-col nzSpan="8">
-    <div id="chart2" echarts [options]="options" theme="macarons" class="demo-chart"></div>
-  </div>
-  <div nz-col nzSpan="8">
-    <div echarts [options]="pieOptions" (chartInit)="onChartInit($event)" class="demo-chart"></div>
-  </div>
-  
+  <div nz-col nzSpan="6"></div>
 </div>
