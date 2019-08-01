@@ -1,0 +1,46 @@
+<nz-header *ngIf="isAuthorized()">
+    <ul nz-menu nzTheme="dark" nzSelectable="false" nzMode="horizontal" class="header-menu">
+        <li nz-menu-item nz-popover nzTrigger="click" [nzContent]="contentTemplate" nzPlacement="bottomRight">
+            <nz-avatar [nzText]="showUserText(false)" [nzSrc]="showUserAvatar()" class="avatar"></nz-avatar>
+        </li>
+        <li nz-menu-item nz-popover nzTrigger="click" [nzContent]="langTemplate" nzPlacement="bottomRight">
+            <strong *ngIf="isCurrentLanguage('en')"><img width="21" alt="eng" src="/assets/images/icons/flags/us.png" />
+                <span> ENG</span></strong>
+            <strong *ngIf="isCurrentLanguage('vi')"><img width="21" alt="eng" src="/assets/images/icons/flags/vn.png" />
+                <span> VIE</span></strong>
+            <strong><i nz-icon nzType="down" nzTheme="outline" style="font-size: 10px;margin: 0;"></i></strong>
+        </li>
+    </ul>
+    <ng-template #contentTemplate>
+        <div class="text-center">
+            Signed in as <strong>{{ showUserText(true) }}</strong>
+        </div>
+        <nz-divider class="divider-menu"></nz-divider>
+        <ul nz-menu nzMode="inline" class="user-action-menu">
+            <li nz-menu-item>
+                <a routerLink="pages/profile"><i nz-icon nzType="user" nzTheme="outline"></i>
+                    <span> Profile</span></a>
+            </li>
+            <li nz-menu-item>
+                <a routerLink="pages/authentication/reset-password"><i nz-icon nzType="tool" nzTheme="outline"></i>
+                    <span> Reset Password</span></a>
+            </li>
+            <li nz-menu-item>
+                <a (click)="logout()"><i nz-icon nzType="poweroff" nzTheme="outline"></i>
+                    <span> Logout</span></a>
+            </li>
+        </ul>
+    </ng-template>
+    <ng-template #langTemplate>
+        <ul nz-menu nzMode="inline" class="user-action-menu">
+            <li nz-menu-item [nzSelected]="isCurrentLanguage('en')">
+                <a (click)="switchLanguage('en')"><img width="21" alt="eng" src="/assets/images/icons/flags/us.png" />
+                    <span> ENG</span></a>
+            </li>
+            <li nz-menu-item [nzSelected]="isCurrentLanguage('vi')">
+                <a (click)="switchLanguage('vi')"><img width="21" alt="vn" src="/assets/images/icons/flags/vn.png" />
+                    <span> VIE</span></a>
+            </li>
+        </ul>
+    </ng-template>
+</nz-header>

@@ -1,16 +1,12 @@
-<div style="display: block;">
-  <canvas
-    baseChart
-    width="200"
-    height="150"
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"
-    [plugins]="lineChartPlugins"
-    (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)"
-  ></canvas>
+<div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+  <div nz-col nzSpan="8">
+    <div id="chart1" echarts [options]="options" theme="macarons" class="demo-chart"></div>
+  </div>
+  <div nz-col nzSpan="8">
+    <div id="chart2" echarts [options]="options" theme="macarons" class="demo-chart"></div>
+  </div>
+  <div nz-col nzSpan="8">
+    <div echarts [options]="pieOptions" (chartInit)="onChartInit($event)" class="demo-chart"></div>
+  </div>
+  
 </div>

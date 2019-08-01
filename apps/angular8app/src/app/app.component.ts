@@ -3,6 +3,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { TitleService } from './services/title.service';
 import { AuthService } from './services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'nrwl-workspace-root',
@@ -14,11 +15,16 @@ export class AppComponent implements OnInit {
   isCollapsed = false;
   questions: any[];
   breadcrumbs: string[];
-  visible: boolean;
 
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor(private titleService: TitleService, private authService: AuthService, private cookieService: CookieService) {
+  constructor(private titleService: TitleService, private authService: AuthService,
+    private cookieService: CookieService, private translate: TranslateService) {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
   }
 
   ngOnInit() {
@@ -41,33 +47,4 @@ export class AppComponent implements OnInit {
     return this.authService.isLoggedIn;
   }
 
-  showUserText(fulltext: boolean) {
-    if (this.authService.isLoggedIn) {
-      if (fulltext) {
-        return this.authService.user.username;
-      }
-      return this.authService.user.username.substring(0, 2).toUpperCase();
-    }
-    return "?";
-  }
-
-  showUserAvatar() {
-    if (this.authService.isLoggedIn && this.authService.user.avatar && 
-      this.authService.user.avatar !== "") {
-      return this.authService.user.avatar;
-    }
-    return "";
-  }
-
-  open(): void {
-    this.visible = !this.visible;
-  }
-
-  close(): void {
-    this.visible = false;
-  }
-
-  logout() {
-    this.authService.clearSession();
-  }
 }

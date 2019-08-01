@@ -1,0 +1,12 @@
+<span class="settings" (click)="open()"><i nz-icon [nzType]="'setting'" [nzSpin]="true" [nzTheme]="'fill'"></i></span>
+<nz-drawer [nzClosable]="false" [nzBodyStyle]="{'color': '#ccc'}" [nzVisible]="visible" nzPlacement="right"
+    [nzTitle]="drawerTemplate" (nzOnClose)="close()">
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+</nz-drawer>
+<ng-template #drawerTemplate>
+    <div class="text-center">
+        <i nz-icon [nzType]="'setting'" [nzSpin]="true" [nzTheme]="'fill'"></i>&nbsp;<span translate>settings</span>
+    </div>
+</ng-template>

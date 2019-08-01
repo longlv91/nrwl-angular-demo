@@ -1,0 +1,59 @@
+nz-header {
+  padding: 0;
+}
+
+.header-menu {
+  height: 64px;
+  position: absolute;
+  width: 100%;
+  padding: 0 16px;
+  z-index: 1;
+}
+
+.header-menu>li {
+  height: 64px;
+  float: right;
+}
+
+.header-menu>li:not(:first-child) {
+  border-right: 1px solid #334454;
+}
+
+.header-menu>li:hover .avatar {
+  color: #fff;
+}
+
+.header-menu .avatar {
+  color: #5d5d5d;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+::ng-deep .header-menu .avatar>i {
+  margin-right: 0;
+}
+
+.divider-menu {
+  margin: 10px 0;
+}
+
+.user-action-menu {
+  border: none;
+}
+
+.user-action-menu>li.ant-menu-item {
+  margin: 0;
+  padding: 0 16px !important;
+}
+
+.user-action-menu>li.ant-menu-item:hover {
+  background-color: #1890ff;
+}
+
+.user-action-menu>li.ant-menu-item>a:hover {
+  color: #fff;
+}
+
+::ng-deep .ant-popover-inner-content {
+  padding: 12px 0;
+}
