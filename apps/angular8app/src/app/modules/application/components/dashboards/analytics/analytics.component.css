@@ -4,3 +4,7 @@
     background-color: #f0f2f5;
     min-height: 200px;
 }
+
+::ng-deep .demo-chart > div:first-child {
+    padding: 10px !important;
+}

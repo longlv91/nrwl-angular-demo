@@ -6,7 +6,7 @@
           id="chart1"
           echarts
           [options]="options"
-          theme="macarons"
+          theme="dark"
           class="demo-chart"
         ></div>
       </div>
@@ -22,6 +22,7 @@
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
         <div
           echarts
+          theme="dark"
           [options]="pieOptions"
           (chartInit)="onChartInit($event)"
           class="demo-chart"

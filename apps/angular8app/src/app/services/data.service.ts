@@ -13,7 +13,8 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMenus(): Observable<Menus[]> {
-    return this.httpClient.get<Menus[]>(this.BACKEND_API + environment.backend_api.menu_context);
+  getMenus(userId: string): Observable<Menus[]> {
+    const query = `?userId=${userId}`;
+    return this.httpClient.get<Menus[]>(this.BACKEND_API + environment.backend_api.menu_context + query);
   }
 }

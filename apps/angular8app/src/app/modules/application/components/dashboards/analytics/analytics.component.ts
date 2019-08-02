@@ -7,8 +7,7 @@ const CHART_OPTIONS = {
     subtext: 'Mocking Data',
     textStyle: {
       "fontSize": 14,
-      "fontWeight": "normal",
-      "color": "#333"
+      "fontWeight": "normal"
     },
     x: 'left'
   },

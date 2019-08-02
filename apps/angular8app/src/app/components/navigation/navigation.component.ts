@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Menus } from '@nrwl-workspace/entities';
 import { DataService } from '../../services/data.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'nrwl-workspace-navigation',
@@ -12,11 +13,15 @@ export class NavigationComponent implements OnInit {
   @Input() isCollapsed: boolean;
   menus: Menus[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.dataService.getMenus().subscribe(data => {
+    this.dataService.getMenus(this.authService.user.id).subscribe(data => {
       this.menus = data;
+      this.authService.menus = [];
+      data.forEach(app => {
+        this.authService.menus.push(...app.menu);
+      })
     })
   }
 

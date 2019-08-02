@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserDTO } from '@nrwl-workspace/entities';
+import { UserDTO, Menu } from '@nrwl-workspace/entities';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -15,6 +15,8 @@ export class AuthService {
   accessToken: string;
   user: UserDTO;
   verifyTokenSub: Subscription;
+  defaultPage: string;
+  menus: Menu[] = [];
 
   private BACKEND_API = environment.backend_api.uri;
 
@@ -29,7 +31,6 @@ export class AuthService {
         this.cookieService.set('user', JSON.stringify(this.user));
         this.cookieService.set('token', this.accessToken);
         this.checkToken();
-        this.router.navigate(["/apps/dashboards/analytics"]);
       }
     });
   }
@@ -47,6 +48,7 @@ export class AuthService {
     this.accessToken = "";
     this.isLoggedIn = false;
     this.user = null;
+    this.defaultPage = undefined;
     this.cookieService.delete('user');
     this.cookieService.delete('token');
     if (this.verifyTokenSub) {
@@ -54,4 +56,24 @@ export class AuthService {
     }
     this.router.navigate(["/pages/authentication/login"]);
   }
+
+  gotoDefaultPage() {
+    this.router.navigate([this.findDefaultPage(this.menus)]);
+  }
+
+  findDefaultPage(menus: Menu[]) {
+    if (this.defaultPage === undefined) {
+      for (let i = 0; i < menus.length; i++) {
+        if (!menus[i].hasChild) {
+          this.defaultPage = '/' + menus[i].routerLink;
+          break;
+        } else {
+          this.findDefaultPage(menus[i].children);
+        }
+      }
+    }
+    return this.defaultPage;
+  }
+
+  
 }

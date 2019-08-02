@@ -3,6 +3,8 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { AES, enc } from 'crypto-js';
 import { environment } from '../../../environments/environment';
+import { Menus, Role, Menu } from '@nrwl-workspace/entities';
+import { navData } from '../../../assets/data';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +41,23 @@ export class AuthService {
       userInfo: clonedUser,
       access_token: this.jwtService.sign(payload),
     };
+  }
+
+  async getNavDataByUserId(userId: string): Promise<Menus[]> {
+    const user = await this.usersService.findOneById(userId);
+    const clonedNav = JSON.parse(JSON.stringify(navData));
+    return clonedNav.map(nav => {
+      nav.menu = this.getNavByRole(nav.menu, user.role);
+      return nav;
+    });
+  }
+
+  getNavByRole(navChildren: Menu[], role: any) {
+    return navChildren.filter(navItem => {
+      if (navItem.hasChild) {
+        navItem.children = this.getNavByRole(navItem.children, role);
+      }
+      return navItem.permissions.includes(role);
+    })
   }
 }

@@ -7,13 +7,13 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly authService: AuthService) {}
+  constructor(private readonly appService: AppService, private readonly authService: AuthService) { }
 
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @Get('menus')
-  getNavData(@Query('userId') userId: string, @Res() res): any {
-    res.status(HttpStatus.OK).json(this.appService.getNavData(userId));
+  getNavData(@Query('userId') userId: string): any {
+    return this.authService.getNavDataByUserId(userId);
   }
 
   @UseGuards(AuthGuard('local'))
@@ -26,7 +26,6 @@ export class AppController {
   @ApiBearerAuth()
   @Get('profile')
   getProfile(@Query('username') username: string) {
-    console.log(username);
     return this.authService.getUser(username);
   }
 
@@ -34,6 +33,6 @@ export class AppController {
   @ApiBearerAuth()
   @Get('check-token')
   checkToken(@Res() res): any {
-    res.status(HttpStatus.OK).json({message: "Valid token"});
+    res.status(HttpStatus.OK).json({ message: "Valid token" });
   }
 }
