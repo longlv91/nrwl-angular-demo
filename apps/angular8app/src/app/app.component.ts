@@ -4,6 +4,7 @@ import { TitleService } from './services/title.service';
 import { AuthService } from './services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { TranslateService } from '@ngx-translate/core';
+import { ThemeControlService } from './services/theme-control.service';
 
 @Component({
   selector: 'nrwl-workspace-root',
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit {
   public config: PerfectScrollbarConfigInterface = {};
 
   constructor(private titleService: TitleService, private authService: AuthService,
-    private cookieService: CookieService, private translate: TranslateService) {
+    private cookieService: CookieService, private translate: TranslateService,
+    private themeService: ThemeControlService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
@@ -45,6 +47,10 @@ export class AppComponent implements OnInit {
 
   isAuthorized() {
     return this.authService.isLoggedIn;
+  }
+
+  getCurrentTheme() {
+    return this.themeService.getCurrentTheme()
   }
 
 }

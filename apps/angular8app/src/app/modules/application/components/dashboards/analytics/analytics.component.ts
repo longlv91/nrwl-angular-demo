@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { getInstanceByDom, connect } from 'echarts';
+import { ThemeControlService } from '../../../../../services/theme-control.service';
 
 const CHART_OPTIONS = {
   title: {
@@ -51,8 +52,58 @@ const CHART_OPTIONS = {
 export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   options = CHART_OPTIONS;
-
   echartsInstance: any;
+
+  optionsChart0 = {
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['Visitor']
+    },
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        magicType: {
+          show: true,
+          type: ['line', 'bar', 'stack', 'tiled'],
+          title: {
+            line: 'Line chart',
+            bar: 'Bar chart',
+            stack: 'Stack',
+            tiled: 'Tiled'
+          }
+        },
+        restore: { show: true, title: 'Refresh' },
+        saveAsImage: { show: true, title: 'Save As Image' }
+      }
+    },
+    calculable: true,
+    xAxis: [
+      {
+        type: 'category',
+        boundaryGap: false,
+        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    series: [
+      {
+        name: 'Visitor',
+        type: 'line',
+        stack: 'Visitor',
+        itemStyle: { normal: { areaStyle: { type: 'default' } } },
+        data: [120, 132, 101, 134, 90, 230, 210, 190, 175, 195, 220, 200]
+      }
+    ]
+  };
+
+
   pieOptions = {
     title: {
       text: 'Nightingale\'s Rose Diagram',
@@ -120,7 +171,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     ]
   };
 
-  constructor() { }
+  constructor(private themeService: ThemeControlService) { }
 
   ngOnInit() {
   }
@@ -133,6 +184,29 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       const chart2 = getInstanceByDom(chartElement2);
       connect([chart1, chart2]);
     });
+  }
+
+  getCurrentTheme() {
+    let theme;
+    switch(this.themeService.getCurrentTheme()) {
+      case 'dark-theme': {
+        theme = 'dark';
+        break;
+      }
+      case 'light-theme': {
+        theme = 'macarons';
+        break;
+      }
+      case 'gray-theme': {
+        theme = 'gray';
+        break;
+      }
+      default: {
+        theme = 'macarons';
+        break;
+      }
+    }
+    return theme;
   }
 
   onChartInit(e: any) {

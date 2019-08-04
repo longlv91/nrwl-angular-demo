@@ -1,4 +1,15 @@
 <div nz-row>
+    <div nz-col>
+        <div
+        id="chart0"
+        echarts
+        [options]="optionsChart0"
+        [theme]="getCurrentTheme()"
+        class="demo-chart"
+      ></div>
+    </div>
+</div>
+<div nz-row>
   <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="16" nzXl="16">
     <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
@@ -6,7 +17,7 @@
           id="chart1"
           echarts
           [options]="options"
-          theme="dark"
+          [theme]="getCurrentTheme()"
           class="demo-chart"
         ></div>
       </div>
@@ -15,14 +26,14 @@
           id="chart2"
           echarts
           [options]="options"
-          theme="macarons"
+          [theme]="getCurrentTheme()"
           class="demo-chart"
         ></div>
       </div>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
         <div
           echarts
-          theme="dark"
+          [theme]="getCurrentTheme()"
           [options]="pieOptions"
           (chartInit)="onChartInit($event)"
           class="demo-chart"

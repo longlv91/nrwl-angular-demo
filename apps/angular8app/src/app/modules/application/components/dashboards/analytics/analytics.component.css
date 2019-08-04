@@ -1,3 +1,7 @@
+::ng-deep div.ant-row {
+    margin-bottom: 20px;
+}
+
 .demo-chart {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -7,4 +11,5 @@
 
 ::ng-deep .demo-chart > div:first-child {
     padding: 10px !important;
+    border-radius: 5px; 
 }

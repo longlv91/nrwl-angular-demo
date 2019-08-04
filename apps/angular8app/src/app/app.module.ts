@@ -24,6 +24,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SharedModule } from './modules/shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { RightSettingsComponent } from './components/right-settings/right-settings.component';
+import { ThemeControlService } from './services/theme-control.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +59,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CookieService,
     AuthService,
     AuthGuardGuard,
+    ThemeControlService,
     DataService
   ],
   bootstrap: [AppComponent]

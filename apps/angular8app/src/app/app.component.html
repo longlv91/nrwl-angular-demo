@@ -1,4 +1,4 @@
-<nz-layout>
+<nz-layout [ngClass]="getCurrentTheme()">
   <nz-sider *ngIf="isAuthorized()" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'lg'" [nzTrigger]="null"
     nzWidth="300px">
     <div class="logo"></div>
@@ -7,7 +7,7 @@
     </perfect-scrollbar>
   </nz-sider>
   <perfect-scrollbar [config]="config">
-    <nz-layout>
+    <nz-layout class="main-container">
       <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
         (click)="isCollapsed = !isCollapsed"></i>
       <nrwl-workspace-header [isCollapsed]="isCollapsed"></nrwl-workspace-header>
