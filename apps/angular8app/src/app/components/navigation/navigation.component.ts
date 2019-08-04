@@ -18,10 +18,6 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     this.dataService.getMenus(this.authService.user.id).subscribe(data => {
       this.menus = data;
-      this.authService.menus = [];
-      data.forEach(app => {
-        this.authService.menus.push(...app.menu);
-      })
     })
   }
 

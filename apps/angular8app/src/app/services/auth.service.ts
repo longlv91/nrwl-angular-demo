@@ -23,16 +23,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
 
   login(postData: any) {
-    this.httpClient.post(this.BACKEND_API + environment.backend_api.login_context, postData).subscribe(data => {
-      if (data) {
-        this.isLoggedIn = true;
-        this.accessToken = data['access_token'];
-        this.user = data['userInfo'];
-        this.cookieService.set('user', JSON.stringify(this.user));
-        this.cookieService.set('token', this.accessToken);
-        this.checkToken();
-      }
-    });
+    return this.httpClient.post(this.BACKEND_API + environment.backend_api.login_context, postData);
   }
 
   checkToken() {
@@ -57,23 +48,8 @@ export class AuthService {
     this.router.navigate(["/pages/authentication/login"]);
   }
 
-  gotoDefaultPage() {
-    this.router.navigate([this.findDefaultPage(this.menus)]);
+  gotoDefaultPage(url: string) {
+    this.router.navigate([url]);
   }
 
-  findDefaultPage(menus: Menu[]) {
-    if (this.defaultPage === undefined) {
-      for (let i = 0; i < menus.length; i++) {
-        if (!menus[i].hasChild) {
-          this.defaultPage = '/' + menus[i].routerLink;
-          break;
-        } else {
-          this.findDefaultPage(menus[i].children);
-        }
-      }
-    }
-    return this.defaultPage;
-  }
-
-  
 }

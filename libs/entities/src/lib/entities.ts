@@ -58,6 +58,8 @@ export class UserDTO {
 
     role: Role;
 
+    defaultPage: string;
+
     isActivated: boolean;
     constructor(options: {
         id?: string,
@@ -65,12 +67,14 @@ export class UserDTO {
         password?: string,
         avatar?: string,
         role?: Role,
+        defaultPage?: string,
         isActivated?: boolean
     } = {}) {
         this.id = options.id;
         this.username = options.username || '';
         this.password = options.password || '';
         this.avatar = options.avatar || '';
+        this.defaultPage = options.defaultPage || '';
         this.role = options.role;
         this.isActivated = options.isActivated;
     }
