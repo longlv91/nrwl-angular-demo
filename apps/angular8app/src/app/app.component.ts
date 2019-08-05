@@ -50,7 +50,10 @@ export class AppComponent implements OnInit {
   }
 
   getCurrentTheme() {
-    return this.themeService.getCurrentTheme()
+    if (this.authService.isLoggedIn) {
+      return this.themeService.getCurrentTheme()
+    }
+    return '';
   }
 
 }

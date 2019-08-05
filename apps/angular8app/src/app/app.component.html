@@ -8,7 +8,7 @@
   </nz-sider>
   <perfect-scrollbar [config]="config">
     <nz-layout class="main-container">
-      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+      <i *ngIf="isAuthorized()" class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
         (click)="isCollapsed = !isCollapsed"></i>
       <nrwl-workspace-header [isCollapsed]="isCollapsed"></nrwl-workspace-header>
       <nz-content [ngClass]="{ 'unauthorized-status': !isAuthorized() }">
