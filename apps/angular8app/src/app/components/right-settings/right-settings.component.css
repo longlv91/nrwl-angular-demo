@@ -15,16 +15,14 @@
   transition: right 0.35s ease-in-out;
 }
 
-::ng-deep .ant-drawer-right .ant-drawer-content {
-  background-color: #303030;
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
 }
 
-::ng-deep .ant-drawer-right .ant-drawer-content .ant-drawer-header {
-  height: 64px;
-  background-color: #334454;
-}
-
-::ng-deep .ant-drawer-right .ant-drawer-content .ant-drawer-header .ant-drawer-title {
-    color: #ccc;
-    font-size: 20px;
+label {
+  display: block;
+  height: 30px;
+  line-height: 30px;
 }

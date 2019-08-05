@@ -1,22 +1,23 @@
 <div nz-row>
-    <div nz-col>
-        <div
-        id="chart0"
-        echarts
-        [options]="optionsChart0"
-        [theme]="getCurrentTheme()"
-        class="demo-chart"
-      ></div>
-    </div>
+  <div nz-col>
+    <div
+      id="chart0"
+      echarts
+      [options]="visitorLineCharOption"
+      [theme]="getCurrentTheme()"
+      class="demo-chart"
+    ></div>
+  </div>
 </div>
 <div nz-row>
   <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="16" nzXl="16">
+    <h4 class="title-section">How are your active users trending over time?</h4>
     <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
         <div
           id="chart1"
           echarts
-          [options]="options"
+          [options]="barChartOption"
           [theme]="getCurrentTheme()"
           class="demo-chart"
         ></div>
@@ -25,7 +26,7 @@
         <div
           id="chart2"
           echarts
-          [options]="options"
+          [options]="barChartOption"
           [theme]="getCurrentTheme()"
           class="demo-chart"
         ></div>
@@ -34,12 +35,24 @@
         <div
           echarts
           [theme]="getCurrentTheme()"
-          [options]="pieOptions"
+          [options]="pie2ChartOption"
           (chartInit)="onChartInit($event)"
           class="demo-chart"
         ></div>
       </div>
     </div>
   </div>
-  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="6" nzXl="6"></div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="6" nzXl="6">
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+        <div
+          echarts
+          [theme]="getCurrentTheme()"
+          [options]="pie1ChartOption"
+          (chartInit)="onChartInit($event)"
+          class="demo-chart"
+        ></div>
+      </div>
+    </div>
+  </div>
 </div>

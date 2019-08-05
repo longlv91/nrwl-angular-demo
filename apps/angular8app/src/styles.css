@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 .text-center {
-    text-align: center;
+  text-align: center;
+}
+
+/* Dark theme */
+nz-layout.dark-theme {
+  background: #000c17;
+}
+
+.dark-theme .ant-breadcrumb,
+.dark-theme .ant-breadcrumb-separator,
+.dark-theme nz-breadcrumb-item:last-child {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ant-drawer-right .dark-theme .ant-drawer-content {
+  background-color: #303030;
+  color: #ccc;
+}
+
+.ant-drawer-right .dark-theme .ant-drawer-content .ant-drawer-header {
+  height: 64px;
+  background-color: #334454;
+}
+
+.ant-drawer-right
+  .dark-theme
+  .ant-drawer-content
+  .ant-drawer-header
+  .ant-drawer-title {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.dark-theme .title-section,
+.ant-drawer-right .dark-theme .ant-drawer-content label.ant-radio-wrapper {
+  color: #ccc;
 }

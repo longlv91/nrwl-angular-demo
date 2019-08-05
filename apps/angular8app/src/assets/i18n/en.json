@@ -1,3 +1,9 @@
 {
-    "settings": "Settings"
+    "settings": "Settings",
+    "themes": "Themes",
+    "theme": {
+        "light": "Light Theme",
+        "dark": "Dark Theme",
+        "gray": "Gray Theme"
+    }
 }

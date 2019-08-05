@@ -17,4 +17,8 @@ export class DataService {
     const query = `?userId=${userId}`;
     return this.httpClient.get<Menus[]>(this.BACKEND_API + environment.backend_api.menu_context + query);
   }
+
+  getAnalyticsData(): Observable<Menus[]> {
+    return this.httpClient.get<Menus[]>(this.BACKEND_API + environment.backend_api.analytics_context);
+  }
 }

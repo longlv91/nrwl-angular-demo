@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { AES, enc } from 'crypto-js';
@@ -6,9 +6,7 @@ import { environment } from '../../../environments/environment';
 import { Menus, Role, Menu } from '@nrwl-workspace/entities';
 import { navData } from '../../../assets/data';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   constructor(private readonly usersService: UsersService,

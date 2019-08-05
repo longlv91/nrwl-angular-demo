@@ -13,3 +13,8 @@
     padding: 10px !important;
     border-radius: 5px; 
 }
+
+.title-section {
+    font-size: 1vw;
+    font-weight: 300;
+}

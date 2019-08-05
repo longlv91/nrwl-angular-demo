@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@nestjs/common';
 import { UserDTO } from '@nrwl-workspace/entities';
 import { users } from '../../../assets/users';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
 
   private readonly users: UserDTO[];

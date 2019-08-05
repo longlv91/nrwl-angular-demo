@@ -8,10 +8,6 @@ nz-layout {
   height: 100%;
 }
 
-nz-layout.dark-theme {
-  background: #000c17;
-}
-
 nz-layout.main-container {
   background: transparent;
 }

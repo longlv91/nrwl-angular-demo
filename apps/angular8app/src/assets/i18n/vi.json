@@ -1,3 +1,9 @@
 {
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "themes": "Chủ đề",
+    "theme": {
+        "light": "Sáng",
+        "dark": "Tối",
+        "gray": "Xám"
+    }
 }
