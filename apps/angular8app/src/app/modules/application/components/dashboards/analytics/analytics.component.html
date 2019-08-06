@@ -1,57 +1,53 @@
 <div nz-row>
   <div nz-col>
-    <div
-      id="chart0"
-      echarts
-      [options]="visitorLineCharOption"
-      [theme]="getCurrentTheme()"
-      class="demo-chart"
-    ></div>
+    <div id="chart0" echarts [options]="visitorLineCharOption" [theme]="getCurrentTheme()" class="chart-container">
+    </div>
   </div>
 </div>
 <div nz-row>
   <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="16" nzXl="16">
-    <h4 class="title-section">How are your active users trending over time?</h4>
     <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <h4 class="title-section">How are your active users trending over time?</h4>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
-        <div
-          id="chart1"
-          echarts
-          [options]="barChartOption"
-          [theme]="getCurrentTheme()"
-          class="demo-chart"
-        ></div>
+        <div id="chart1" echarts [options]="barChartOption" [theme]="getCurrentTheme()" class="chart-container"></div>
       </div>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
-        <div
-          id="chart2"
-          echarts
-          [options]="barChartOption"
-          [theme]="getCurrentTheme()"
-          class="demo-chart"
-        ></div>
+        <div id="chart2" echarts [options]="barChartOption" [theme]="getCurrentTheme()" class="chart-container"></div>
       </div>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8">
-        <div
-          echarts
-          [theme]="getCurrentTheme()"
-          [options]="pie2ChartOption"
-          (chartInit)="onChartInit($event)"
-          class="demo-chart"
-        ></div>
+        <div id="chart3" echarts [theme]="getCurrentTheme()" [options]="pie2ChartOption"
+          (chartInit)="onChartInit($event)" class="chart-container"></div>
       </div>
     </div>
   </div>
-  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="6" nzXl="6">
-    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
-      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
-        <div
-          echarts
-          [theme]="getCurrentTheme()"
-          [options]="pie1ChartOption"
-          (chartInit)="onChartInit($event)"
-          class="demo-chart"
-        ></div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" class="right-section">
+    <div nz-row nzType="flex" nzJustify="center" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <h4 class="title-section">What are your top devices?</h4>
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20">
+        <div id="chart4" echarts [theme]="getCurrentTheme()" [options]="pie1ChartOption"
+          (chartInit)="onChartInit($event)" class="chart-container"></div>
+      </div>
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20">
+        <div nz-row nzType="flex" nzJustify="center" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+          <div nz-col nzXs="8" nzSm="8" nzMd="8" nzLg="8" nzXl="8">
+            <nz-statistic [nzValue]="11.28 | number: '1.0-2'" [nzTitle]="'Desktop'" [nzPrefix]="prefixArrowUp"
+              [nzSuffix]="'%'" [nzValueStyle]="{ color: '#3F8600' }">
+            </nz-statistic>
+            <ng-template #prefixArrowUp><i nz-icon nzType="arrow-up"></i></ng-template>
+          </div>
+          <div nz-col nzXs="8" nzSm="8" nzMd="8" nzLg="8" nzXl="8">
+            <nz-statistic [nzValue]="9.3 | number: '1.0-2'" [nzTitle]="'Mobile'" [nzPrefix]="prefixArrowDown"
+              [nzSuffix]="'%'" [nzValueStyle]="{ color: 'red' }">
+            </nz-statistic>
+            <ng-template #prefixArrowDown><i nz-icon nzType="arrow-down"></i></ng-template>
+          </div>
+          <div nz-col nzXs="8" nzSm="8" nzMd="8" nzLg="8" nzXl="8">
+            <nz-statistic [nzValue]="11.28 | number: '1.0-2'" [nzTitle]="'Tablet'" [nzPrefix]="prefixArrowRise"
+              [nzSuffix]="'%'" [nzValueStyle]="{ color: 'blue' }">
+            </nz-statistic>
+            <ng-template #prefixArrowRise><i nz-icon nzType="rise"></i></ng-template>
+          </div>
+        </div>
       </div>
     </div>
   </div>
