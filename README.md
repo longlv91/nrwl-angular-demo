@@ -71,6 +71,18 @@ Run `ng g component my-component --project=my-app` to generate a new component.
 
 Run `ng build angular8app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+Use default user `admin/admin` to login
+
+## Screen Capture
+
+### Login page
+
+<p align="center"><img src="./captures/LoginPage.PNG" width="700"></p>
+
+### Home page
+
+<p align="center"><img src="./captures/screenshoot.PNG" width="700"></p>
+
 ## Running unit tests
 
 Run `ng test angular8app` to execute the unit tests via [Jest](https://jestjs.io).
